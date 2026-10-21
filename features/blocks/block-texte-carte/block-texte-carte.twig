@@ -1,0 +1,28 @@
+{# La carte = bloc « Roquette Map » verrouillé : ses réglages restent dans la colonne de droite de l'éditeur. #}
+<div {% if attributes.anchor %}id="{{ attributes.anchor|e('html_attr') }}" {% endif %}class="wp-block__texte-carte align{{ attributes.align|e('html_attr') }} {{ attributes.className|e('html_attr') }}">
+	<div class="texte-carte__texte">
+		{% if fields.titre %}
+			<h2 class="texte-carte__titre">{{ fields.titre|e }}</h2>
+		{% elseif is_preview %}
+			<h2 class="texte-carte__titre">Texte + carte : saisir un titre</h2>
+		{% endif %}
+
+		{% if fields.description %}
+			<p class="texte-carte__description">{{ fields.description|e|nl2br }}</p>
+		{% endif %}
+
+		{% if fields.liens %}
+			<ul class="texte-carte__liens">
+				{% for l in fields.liens|filter(l => l.lien) %}
+					<li>
+						<a href="{{ l.lien.url|e('html_attr') }}"{% if l.lien.target %} target="{{ l.lien.target|e('html_attr') }}"{% endif %}>
+							<span aria-hidden="true">↘</span> {{ l.lien.title|e }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</div>
+
+	<InnerBlocks class="texte-carte__carte" template="{{ [['roquette-map/carte']]|json_encode|e('html_attr') }}" templateLock="all" />
+</div>

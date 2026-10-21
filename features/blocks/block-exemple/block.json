@@ -1,0 +1,15 @@
+{
+	"name": "acf/block-exemple",
+	"title": "Bloc exemple",
+	"description": "Modèle de bloc ACF : copier ce dossier pour en créer un nouveau.",
+	"category": "text",
+	"icon": "format-aside",
+	"acf": {
+		"blockVersion": 3,
+		"mode": "auto",
+		"renderCallback": "RoquetteMap\\Features\\Blocks\\Blocks::render"
+	},
+	"supports": {
+		"anchor": true
+	}
+}

@@ -3,6 +3,7 @@ namespace RoquetteMap\Core;
 
 use RoquetteMap\Features\Admin\Admin;
 use RoquetteMap\Features\Bloc\Bloc;
+use RoquetteMap\Features\Blocks\Blocks;
 use RoquetteMap\Features\Carte\Carte;
 use RoquetteMap\Features\Fond\Fond;
 use RoquetteMap\Features\Localisation\Localisation;
@@ -32,6 +33,7 @@ final class Plugin {
 		$carte = new Carte( $view, $fond, $pins );
 		$carte->register_hooks();
 		( new Bloc( $carte, $fond, $pins ) )->register_hooks();
+		( new Blocks() )->register_hooks();
 
 		if ( is_admin() ) {
 			( new Admin( $view, $fond, $pins ) )->register_hooks();

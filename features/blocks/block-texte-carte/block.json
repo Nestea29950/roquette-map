@@ -1,0 +1,19 @@
+{
+	"name": "acf/block-texte-carte",
+	"title": "Texte + carte",
+	"description": "Titre, description et liens à gauche, carte Roquette Map à droite.",
+	"category": "text",
+	"icon": "location-alt",
+	"keywords": ["carte", "map", "texte"],
+	"style": "file:./block-texte-carte.css",
+	"acf": {
+		"blockVersion": 3,
+		"mode": "preview",
+		"renderCallback": "RoquetteMap\\Features\\Blocks\\Blocks::render"
+	},
+	"supports": {
+		"anchor": true,
+		"align": ["wide", "full"],
+		"jsx": true
+	}
+}

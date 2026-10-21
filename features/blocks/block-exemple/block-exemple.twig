@@ -1,0 +1,3 @@
+<div {% if attributes.anchor %}id="{{ attributes.anchor|e('html_attr') }}" {% endif %}class="wp-block__exemple {{ attributes.className|e('html_attr') }}">
+	<h2>{{ (fields.titre ?: (is_preview ? 'Bloc exemple : saisir un titre' : ''))|e }}</h2>
+</div>

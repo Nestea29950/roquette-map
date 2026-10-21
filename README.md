@@ -25,6 +25,7 @@ Cartes Leaflet via le **bloc « Roquette Map »** (éditeur de blocs, réglages 
 | Ajouter une image de pin | déposer le fichier dans `features/pins/images/` |
 | Le pin par défaut | `features/pins/images/default.png` |
 | Ajouter / retirer un fond de carte | `features/fond/fonds.php` |
+| Ajouter un bloc ACF (ACF PRO) commun aux sites | copier `features/blocks/block-exemple/` en `features/blocks/{slug}/`, renommer le `.twig` en `{slug}.twig`, mettre `acf/{slug}` dans `block.json` et dans la `location` de `fields.php` |
 | La page admin « Roquette Map » | `features/admin/dashboard.php` (+ `admin.css`, `admin.js`) |
 
 ## Images des pins
@@ -87,4 +88,6 @@ lib/leaflet/            Leaflet 1.9.4 en local (pas de CDN).
 3. GitHub → Releases → Draft a new release : tag `v0.2` (= la version), joindre `roquette-map.zip`, Publish.
 
 Les sites voient la mise à jour dans Extensions (sous 12 h, ou Tableau de bord → Mises à jour → « Vérifier à nouveau »).
-Une mise à jour remplace tout le dossier du plugin : ne pas modifier les fichiers directement sur un site.
+Une mise à jour remplace le dossier du plugin, **sauf** les fichiers propres au site, gardés tels quels (ajoutés ou modifiés) :
+images des pins (`features/pins/images/`), templates de popup (`features/popup/*.twig`) et `features/popup/popup.css`.
+La liste est la constante `KEEP` de `features/maj/Maj.php`. Tout autre fichier modifié sur un site sera écrasé.
