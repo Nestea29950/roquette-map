@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "roquette-map/carte",
+	"title": "Roquette Map",
+	"category": "embed",
+	"icon": "location-alt",
+	"description": "Carte Leaflet avec les pins des contenus choisis.",
+	"textdomain": "roquette-map",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"cpt": { "type": "array", "default": [] },
+		"fond": { "type": "string", "default": "" },
+		"pin": { "type": "string", "default": "" },
+		"pins": { "type": "object", "default": {} },
+		"termPins": { "type": "object", "default": {} },
+		"posts": { "type": "object", "default": {} }
+	},
+	"editorScript": "roquette-map-bloc"
+}

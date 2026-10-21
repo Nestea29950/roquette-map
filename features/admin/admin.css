@@ -1,0 +1,575 @@
+/* ==========================================================================
+   Roquette Map — Admin, style iOS 17
+   Scopé sous .ios-app pour ne pas toucher au reste de l'admin WordPress.
+   ========================================================================== */
+
+/* Tokens iOS 17 (Light)
+   ========================================================================== */
+.ios-app {
+	--ios-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+	/* Backgrounds (grouped) */
+	--ios-bg: #f2f2f7;               /* systemGroupedBackground */
+	--ios-bg-2: #ffffff;             /* secondarySystemGroupedBackground */
+	--ios-bg-3: #f2f2f7;             /* tertiarySystemGroupedBackground */
+
+	/* Labels */
+	--ios-label: #000000;
+	--ios-label-2: rgba(60, 60, 67, 0.6);
+	--ios-label-3: rgba(60, 60, 67, 0.3);
+	--ios-label-4: rgba(60, 60, 67, 0.18);
+
+	/* Fills */
+	--ios-fill: rgba(120, 120, 128, 0.2);
+	--ios-fill-2: rgba(120, 120, 128, 0.16);
+	--ios-fill-3: rgba(118, 118, 128, 0.12);
+	--ios-fill-4: rgba(116, 116, 128, 0.08);
+
+	/* Separators */
+	--ios-separator: rgba(60, 60, 67, 0.29);
+
+	/* System colors */
+	--ios-blue: #007aff;
+	--ios-green: #34c759;
+	--ios-indigo: #5856d6;
+	--ios-orange: #ff9500;
+	--ios-pink: #ff2d55;
+	--ios-purple: #af52de;
+	--ios-red: #ff3b30;
+	--ios-teal: #30b0c7;
+	--ios-yellow: #ffcc00;
+	--ios-gray: #8e8e93;
+
+	/* Shapes */
+	--ios-radius-group: 10px;
+	--ios-radius-button: 12px;
+	--ios-radius-icon: 7px;
+
+	--ios-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+body.ios-admin #wpcontent,
+body.ios-admin #wpbody-content {
+	background: #f2f2f7;
+}
+
+/* Base
+   ========================================================================== */
+.ios-app {
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 24px 0 80px;
+	font-family: var(--ios-font);
+	font-size: 17px;
+	line-height: 1.29;
+	letter-spacing: -0.41px;
+	color: var(--ios-label);
+	-webkit-font-smoothing: antialiased;
+}
+
+.ios-app *,
+.ios-app *::before,
+.ios-app *::after {
+	box-sizing: border-box;
+}
+
+/* Typographie (Dynamic Type, taille Large)
+   ========================================================================== */
+.ios-large-title {
+	margin: 0;
+	padding: 0;
+	font-size: 34px;
+	font-weight: 700;
+	line-height: 41px;
+	letter-spacing: 0.37px;
+	color: var(--ios-label);
+}
+
+.ios-title-1 { margin: 0; font-size: 28px; font-weight: 700; line-height: 34px; letter-spacing: 0.36px; }
+.ios-title-2 { margin: 0; font-size: 22px; font-weight: 700; line-height: 28px; letter-spacing: 0.35px; }
+.ios-title-3 { margin: 0; font-size: 20px; font-weight: 600; line-height: 25px; letter-spacing: 0.38px; }
+.ios-headline { font-size: 17px; font-weight: 600; line-height: 22px; }
+.ios-subheadline { font-size: 15px; line-height: 20px; letter-spacing: -0.24px; }
+.ios-footnote { font-size: 13px; line-height: 18px; letter-spacing: -0.08px; }
+.ios-caption { font-size: 12px; line-height: 16px; }
+
+.ios-secondary {
+	margin: 0;
+	color: var(--ios-label-2);
+}
+
+/* Navigation bar
+   ========================================================================== */
+.ios-navbar {
+	padding: 0 16px 16px;
+}
+
+/* Section + inset grouped list
+   ========================================================================== */
+.ios-section {
+	margin: 0 0 35px;
+}
+
+.ios-section__header {
+	margin: 0;
+	padding: 0 16px 7px 32px;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 18px;
+	text-transform: uppercase;
+	color: var(--ios-label-2);
+}
+
+/* Icône au-dessus du titre de section */
+.ios-section__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 29px;
+	height: 29px;
+	margin: 0 0 8px 32px;
+	border-radius: var(--ios-radius-icon);
+	color: #fff;
+	background: var(--ios-blue);
+}
+
+.ios-section__icon .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+}
+
+.ios-section__footer {
+	margin: 0;
+	padding: 7px 32px 0;
+	font-size: 13px;
+	line-height: 18px;
+	color: var(--ios-label-2);
+}
+
+.ios-group {
+	margin: 0 16px;
+	padding: 0;
+	list-style: none;
+	background: var(--ios-bg-2);
+	border-radius: var(--ios-radius-group);
+	overflow: hidden;
+}
+
+/* Cell */
+.ios-cell {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-height: 44px;
+	margin: 0;
+	padding: 11px 16px;
+	color: var(--ios-label);
+	text-decoration: none;
+	background: var(--ios-bg-2);
+	transition: background-color 0.2s var(--ios-ease);
+}
+
+/* Séparateur aligné sur le texte, comme dans Réglages */
+.ios-cell + .ios-cell::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 16px;
+	height: 0.5px;
+	background: var(--ios-separator);
+}
+
+.ios-cell--icon + .ios-cell::before,
+.ios-cell + .ios-cell--icon::before {
+	left: 57px;
+}
+
+a.ios-cell:hover,
+a.ios-cell:focus {
+	color: var(--ios-label);
+	background: #e5e5ea;
+	box-shadow: none;
+}
+
+.ios-cell__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 29px;
+	width: 29px;
+	height: 29px;
+	border-radius: var(--ios-radius-icon);
+	color: #fff;
+	background: var(--ios-blue);
+}
+
+.ios-cell__icon .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+}
+
+.ios-cell__body {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.ios-cell__title {
+	display: block;
+}
+
+.ios-cell__subtitle {
+	display: block;
+	font-size: 15px;
+	line-height: 20px;
+	color: var(--ios-label-2);
+}
+
+.ios-cell__value {
+	color: var(--ios-label-2);
+}
+
+.ios-cell__chevron {
+	width: 8px;
+	height: 13px;
+	flex: 0 0 8px;
+	border-top: 2px solid var(--ios-label-3);
+	border-right: 2px solid var(--ios-label-3);
+	transform: scale(0.7) rotate(45deg);
+}
+
+/* Boutons iOS 17
+   ========================================================================== */
+.ios-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	min-height: 34px;
+	margin: 0;
+	padding: 7px 14px;
+	border: 0;
+	border-radius: var(--ios-radius-button);
+	font-family: inherit;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 20px;
+	letter-spacing: -0.24px;
+	text-decoration: none;
+	cursor: pointer;
+	transition: opacity 0.15s var(--ios-ease);
+}
+
+.ios-btn:active {
+	opacity: 0.6;
+}
+
+.ios-btn:focus-visible {
+	outline: 2px solid var(--ios-blue);
+	outline-offset: 2px;
+	box-shadow: none;
+}
+
+/* Filled */
+.ios-btn--filled,
+.ios-btn--filled:hover,
+.ios-btn--filled:focus {
+	color: #fff;
+	background: var(--ios-blue);
+}
+
+/* Tinted */
+.ios-btn--tinted,
+.ios-btn--tinted:hover,
+.ios-btn--tinted:focus {
+	color: var(--ios-blue);
+	background: rgba(0, 122, 255, 0.15);
+}
+
+/* Gray */
+.ios-btn--gray,
+.ios-btn--gray:hover,
+.ios-btn--gray:focus {
+	color: var(--ios-blue);
+	background: var(--ios-fill-3);
+}
+
+/* Plain */
+.ios-btn--plain,
+.ios-btn--plain:hover,
+.ios-btn--plain:focus {
+	padding-right: 0;
+	padding-left: 0;
+	font-weight: 400;
+	color: var(--ios-blue);
+	background: transparent;
+}
+
+/* Destructive */
+.ios-btn--destructive {
+	color: var(--ios-red);
+}
+
+.ios-btn--filled.ios-btn--destructive {
+	color: #fff;
+	background: var(--ios-red);
+}
+
+/* Tailles */
+.ios-btn--large {
+	width: 100%;
+	min-height: 50px;
+	padding: 14px 20px;
+	border-radius: 14px;
+	font-size: 17px;
+	line-height: 22px;
+	letter-spacing: -0.41px;
+}
+
+.ios-btn--small {
+	min-height: 28px;
+	padding: 3px 10px;
+	border-radius: 980px;
+	font-size: 13px;
+}
+
+.ios-btn[disabled] {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+/* Text field (dans une cellule)
+   ========================================================================== */
+.ios-app .ios-input {
+	width: 100%;
+	min-height: 22px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	font-family: inherit;
+	font-size: 17px;
+	color: var(--ios-label);
+	background: transparent;
+	box-shadow: none;
+}
+
+.ios-app .ios-input:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.ios-app .ios-input::placeholder {
+	color: var(--ios-label-3);
+}
+
+/* Select (dans une cellule, valeur à droite + chevron)
+   ========================================================================== */
+.ios-app .ios-select {
+	min-height: 22px;
+	margin: 0;
+	padding: 0 22px 0 0;
+	border: 0;
+	border-radius: 0;
+	font-family: inherit;
+	font-size: 17px;
+	color: var(--ios-label-2);
+	text-align: right;
+	background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='16' viewBox='0 0 10 16'%3E%3Cpath d='M1 5l4-4 4 4M1 11l4 4 4-4' fill='none' stroke='%233c3c4399' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right center;
+	box-shadow: none;
+	cursor: pointer;
+	appearance: none;
+}
+
+.ios-app .ios-select:focus {
+	outline: none;
+	box-shadow: none;
+	color: var(--ios-blue);
+}
+
+.ios-pin-preview {
+	display: block;
+	max-height: 64px;
+}
+
+/* Search bar */
+.ios-search {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	height: 36px;
+	margin: 0 16px 16px;
+	padding: 0 8px;
+	border-radius: 10px;
+	background: var(--ios-fill-3);
+	color: var(--ios-label-2);
+}
+
+/* Switch (UISwitch)
+   ========================================================================== */
+.ios-switch {
+	position: relative;
+	display: inline-flex;
+	flex: 0 0 auto;
+	cursor: pointer;
+}
+
+.ios-app .ios-switch input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+	opacity: 0;
+}
+
+.ios-switch__track {
+	position: relative;
+	width: 51px;
+	height: 31px;
+	border-radius: 16px;
+	background: var(--ios-fill);
+	transition: background-color 0.25s var(--ios-ease);
+}
+
+.ios-switch__track::after {
+	content: "";
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 27px;
+	height: 27px;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 3px 1px rgba(0, 0, 0, 0.06);
+	transition: transform 0.25s var(--ios-ease);
+}
+
+.ios-switch input:checked + .ios-switch__track {
+	background: var(--ios-green);
+}
+
+.ios-switch input:checked + .ios-switch__track::after {
+	transform: translateX(20px);
+}
+
+.ios-switch input:focus-visible + .ios-switch__track {
+	outline: 2px solid var(--ios-blue);
+	outline-offset: 2px;
+}
+
+/* Segmented control
+   ========================================================================== */
+.ios-segmented {
+	display: flex;
+	padding: 2px;
+	border-radius: 9px;
+	background: var(--ios-fill-3);
+}
+
+.ios-segmented__item {
+	position: relative;
+	flex: 1 1 0;
+	margin: 0;
+	text-align: center;
+}
+
+.ios-app .ios-segmented__item input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+	opacity: 0;
+}
+
+.ios-segmented__item span {
+	display: block;
+	padding: 4px 12px;
+	border-radius: 7px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 20px;
+	cursor: pointer;
+	transition: background-color 0.2s var(--ios-ease), box-shadow 0.2s var(--ios-ease);
+}
+
+.ios-segmented__item input:checked + span {
+	font-weight: 600;
+	background: #fff;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12), 0 3px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Badge
+   ========================================================================== */
+.ios-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 20px;
+	height: 20px;
+	padding: 0 6px;
+	border-radius: 10px;
+	font-size: 13px;
+	font-weight: 400;
+	color: #fff;
+	background: var(--ios-red);
+}
+
+/* Code + tag
+   ========================================================================== */
+.ios-app .ios-code {
+	padding: 2px 7px;
+	border-radius: 6px;
+	font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+	font-size: 14px;
+	color: var(--ios-label);
+	background: var(--ios-fill-4);
+	white-space: nowrap;
+}
+
+.ios-tag {
+	display: inline-block;
+	margin-left: 6px;
+	padding: 1px 7px;
+	border-radius: 980px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 18px;
+	vertical-align: 1px;
+	color: var(--ios-blue);
+	background: rgba(0, 122, 255, 0.12);
+}
+
+/* Empty state (ContentUnavailableView, iOS 17)
+   ========================================================================== */
+.ios-empty {
+	padding: 48px 24px;
+	text-align: center;
+}
+
+.ios-empty__icon {
+	margin-bottom: 12px;
+	color: var(--ios-label-2);
+}
+
+.ios-empty__icon .dashicons {
+	width: 48px;
+	height: 48px;
+	font-size: 48px;
+}
+
+.ios-empty .ios-secondary {
+	margin-top: 6px;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+/* Responsive
+   ========================================================================== */
+@media (max-width: 782px) {
+	.ios-app {
+		padding-top: 12px;
+	}
+}

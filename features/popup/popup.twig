@@ -1,0 +1,18 @@
+{#
+	Popup d'un pin — structure complète, à modifier librement.
+	Le style est dans popup.css (même dossier).
+
+	Variable : post (Timber\Post)
+	  post.title, post.link, post.excerpt, post.thumbnail.src('medium'),
+	  post.type.labels.singular_name, post.meta('adresse')…
+
+	Tout élément avec l'attribut data-roquette-popup-close ferme la popup.
+#}
+
+<div class="rm-popup">
+	<button type="button" class="rm-popup__close" data-roquette-popup-close aria-label="Fermer">&times;</button>
+
+	<a class="rm-popup__title" href="{{ post.link }}">{{ post.title }}</a>
+	
+	<span class="rm-popup__arrow"></span>
+</div>

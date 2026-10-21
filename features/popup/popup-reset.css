@@ -1,0 +1,25 @@
+/* Neutralise l'habillage Leaflet des popups (cadre, ombre, pointe).
+   Ne pas modifier : le rendu de la popup se règle dans popup.twig et popup.css. */
+.roquette-popup .leaflet-popup-content-wrapper {
+	padding: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	color: inherit;
+	text-align: left;
+}
+
+.roquette-popup .leaflet-popup-content {
+	width: auto !important;
+	margin: 0;
+	font: inherit;
+	line-height: inherit;
+}
+
+.roquette-popup .leaflet-popup-content p {
+	margin: 0;
+}
+
+.roquette-popup .leaflet-popup-tip-container {
+	display: none;
+}
