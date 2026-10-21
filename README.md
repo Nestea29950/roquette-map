@@ -82,7 +82,7 @@ lib/leaflet/            Leaflet 1.9.4 en local (pas de CDN).
 
 1. Monter la version dans `roquette-map.php` (en-tête `Version:` **et** `ROQUETTE_MAP_VERSION`), commit + push.
 2. Créer le zip : `git archive --prefix=roquette-map/ -o roquette-map.zip HEAD`
-3. GitHub → Releases → Draft a new release : tag `v1.3.0` (= la version), joindre `roquette-map.zip`, Publish.
+3. GitHub → Releases → Draft a new release : tag `v0.2` (= la version), joindre `roquette-map.zip`, Publish.
 
 Les sites voient la mise à jour dans Extensions (sous 12 h, ou Tableau de bord → Mises à jour → « Vérifier à nouveau »).
 Une mise à jour remplace tout le dossier du plugin : ne pas modifier les fichiers directement sur un site.
