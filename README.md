@@ -12,6 +12,8 @@ Cartes Leaflet via le **bloc « Roquette Map »** (éditeur de blocs, réglages 
 |---|---|
 | Le contenu HTML de la popup | `features/popup/popup.twig` |
 | Le style de la popup | `features/popup/popup.css` |
+| Une popup différente pour un CPT | créer `features/popup/popup-{cpt}.twig` (ex. `popup-restaurants.twig`) |
+| Styler la popup d’un CPT / d’un terme | classes `popup-{cpt}` et `popup-{taxonomie}-{terme}` (ex. `.popup-evenements`, `.popup-category-concert`) |
 | Le comportement de la popup (fermeture, décalage) | `features/popup/popup.js` |
 | La hauteur / taille de la carte | `features/carte/carte.css` |
 | L'initialisation de la carte (zoom, cadrage) | `features/carte/carte.js` |

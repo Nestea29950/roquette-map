@@ -6,10 +6,15 @@
 	  post.title, post.link, post.excerpt, post.thumbnail.src('medium'),
 	  post.type.labels.singular_name, post.meta('adresse')…
 
+	Variable : classes ("popup-evenements popup-categorie-concert…") : CPT + chaque terme du post.
+
+	Un affichage différent pour un CPT : créer popup-{cpt}.twig (ex. popup-restaurants.twig)
+	dans ce dossier, sinon c'est ce fichier qui est utilisé.
+
 	Tout élément avec l'attribut data-roquette-popup-close ferme la popup.
 #}
 
-<div class="rm-popup">
+<div class="rm-popup {{ classes }}">
 	<button type="button" class="rm-popup__close" data-roquette-popup-close aria-label="Fermer">&times;</button>
 
 	<a class="rm-popup__title" href="{{ post.link }}">{{ post.title }}</a>

@@ -43,9 +43,31 @@ final class Popup {
 			return sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post ) ), esc_html( get_the_title( $post ) ) );
 		}
 
+		// Timber prend le premier template qui existe : popup-{cpt}.twig, sinon popup.twig.
 		return (string) \Timber\Timber::compile(
-			self::TEMPLATE,
-			array( 'post' => \Timber\Timber::get_post( $post ) )
+			array( '@roquette-map/popup-' . $post->post_type . '.twig', self::TEMPLATE ),
+			array(
+				'post'    => \Timber\Timber::get_post( $post ),
+				'classes' => $this->classes( $post ),
+			)
 		);
+	}
+
+	/**
+	 * "popup-{cpt} popup-{taxonomie}-{terme} …" pour cibler la popup en CSS.
+	 */
+	private function classes( \WP_Post $post ): string {
+		$classes = array( 'popup-' . $post->post_type );
+
+		foreach ( get_object_taxonomies( $post ) as $taxonomy ) {
+			$terms = get_the_terms( $post, $taxonomy );
+			if ( is_array( $terms ) ) {
+				foreach ( $terms as $term ) {
+					$classes[] = 'popup-' . $taxonomy . '-' . $term->slug;
+				}
+			}
+		}
+
+		return implode( ' ', array_map( 'sanitize_html_class', $classes ) );
 	}
 }
