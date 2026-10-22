@@ -4,6 +4,7 @@ namespace RoquetteMap\Features\Admin;
 use RoquetteMap\Core\Assets;
 use RoquetteMap\Core\View;
 use RoquetteMap\Features\Fond\Fond;
+use RoquetteMap\Features\Localisation\Localisation;
 use RoquetteMap\Features\Pins\Pins;
 
 defined( 'ABSPATH' ) || exit;
@@ -28,13 +29,17 @@ final class Admin {
 	/** @var Pins */
 	private $pins;
 
+	/** @var Localisation */
+	private $localisation;
+
 	/** @var string */
 	private $hook_suffix = '';
 
-	public function __construct( View $view, Fond $fond, Pins $pins ) {
-		$this->view = $view;
-		$this->fond = $fond;
-		$this->pins = $pins;
+	public function __construct( View $view, Fond $fond, Pins $pins, Localisation $localisation ) {
+		$this->view         = $view;
+		$this->fond         = $fond;
+		$this->pins         = $pins;
+		$this->localisation = $localisation;
 	}
 
 	public function register_hooks(): void {
@@ -84,6 +89,9 @@ final class Admin {
 					'post_types' => $this->post_types(),
 					'tiles'      => $this->fond->all(),
 					'pin_images' => $this->pins->images(),
+					'loc_types'  => $this->localisation->types(),
+					'loc_on'     => $this->localisation->enabled(),
+					'loc_option' => Localisation::OPTION,
 				),
 			)
 		);

@@ -25,7 +25,6 @@ Cartes Leaflet via le **bloc « Roquette Map »** (éditeur de blocs, réglages 
 | Ajouter une image de pin | déposer le fichier dans `features/pins/images/` |
 | Le pin par défaut | `features/pins/images/default.png` |
 | Ajouter / retirer un fond de carte | `features/fond/fonds.php` |
-| Ajouter un bloc ACF (ACF PRO) commun aux sites | copier `features/blocks/block-exemple/` en `features/blocks/{slug}/`, renommer le `.twig` en `{slug}.twig`, mettre `acf/{slug}` dans `block.json` et dans la `location` de `fields.php` |
 | La page admin « Roquette Map » | `features/admin/dashboard.php` (+ `admin.css`, `admin.js`) |
 
 ## Images des pins

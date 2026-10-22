@@ -51,8 +51,9 @@ final class Pins {
 				'post_status'    => 'publish',
 				'posts_per_page' => -1,
 				'meta_query'     => array(
-					array( 'key' => 'lat', 'compare' => 'EXISTS' ),
-					array( 'key' => 'lng', 'compare' => 'EXISTS' ),
+					// != '' : ACF enregistre une méta vide quand le champ facultatif n'est pas rempli.
+					array( 'key' => 'lat', 'value' => '', 'compare' => '!=' ),
+					array( 'key' => 'lng', 'value' => '', 'compare' => '!=' ),
 				),
 			)
 		);

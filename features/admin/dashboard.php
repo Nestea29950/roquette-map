@@ -5,6 +5,9 @@
  * @var \WP_Post_Type[] $post_types
  * @var array           $tiles
  * @var string[]        $pin_images
+ * @var \WP_Post_Type[] $loc_types
+ * @var string[]        $loc_on
+ * @var string          $loc_option
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -79,6 +82,27 @@ $first_cpt = $post_types ? array_key_first( $post_types ) : 'evenements';
 		<?php endforeach; ?>
 	</ul>
 	<p class="ios-section__footer"><?php esc_html_e( 'Valeurs à utiliser dans le paramètre cpt.', 'roquette-map' ); ?></p>
+</section>
+
+<section class="ios-section">
+	<span class="ios-section__icon" style="background: var(--ios-orange)"><span class="dashicons dashicons-location-alt"></span></span>
+	<h2 class="ios-section__header"><?php esc_html_e( 'Champs « Localisation »', 'roquette-map' ); ?></h2>
+	<form method="post" action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>">
+		<?php settings_fields( 'roquette_map' ); ?>
+		<ul class="ios-group">
+			<?php foreach ( $loc_types as $slug => $type ) : ?>
+				<li class="ios-cell">
+					<label class="ios-cell__body" for="rm-loc-<?php echo esc_attr( $slug ); ?>"><?php echo esc_html( $type->labels->name ); ?></label>
+					<label class="ios-switch">
+						<input type="checkbox" id="rm-loc-<?php echo esc_attr( $slug ); ?>" name="<?php echo esc_attr( $loc_option ); ?>[]" value="<?php echo esc_attr( $slug ); ?>" <?php checked( in_array( $slug, $loc_on, true ) ); ?>>
+						<span class="ios-switch__track"></span>
+					</label>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+		<p class="ios-section__footer"><?php esc_html_e( 'Types de contenu qui reçoivent les champs ACF adresse, lat et lng (facultatifs : sans lat/lng, pas de pin).', 'roquette-map' ); ?></p>
+		<p><button type="submit" class="ios-btn ios-btn--filled"><?php esc_html_e( 'Enregistrer', 'roquette-map' ); ?></button></p>
+	</form>
 </section>
 
 <section class="ios-section">
