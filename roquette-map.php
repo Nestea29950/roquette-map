@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Roquette Map
  * Description:       Cartes Leaflet embarquées en local (sans CDN).
- * Version:           0.3
+ * Version:           0.4
  * Author:            Roquette
  * Text Domain:       roquette-map
  * Domain Path:       /languages
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ROQUETTE_MAP_VERSION', '0.3' );
+define( 'ROQUETTE_MAP_VERSION', '0.4' );
 define( 'ROQUETTE_MAP_FILE', __FILE__ );
 define( 'ROQUETTE_MAP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ROQUETTE_MAP_URL', plugin_dir_url( __FILE__ ) );

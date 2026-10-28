@@ -100,7 +100,7 @@ $first_cpt = $post_types ? array_key_first( $post_types ) : 'evenements';
 				</li>
 			<?php endforeach; ?>
 		</ul>
-		<p class="ios-section__footer"><?php esc_html_e( 'Types de contenu qui reçoivent les champs ACF adresse, lat et lng (facultatifs : sans lat/lng, pas de pin).', 'roquette-map' ); ?></p>
+		<p class="ios-section__footer"><?php esc_html_e( 'Types de contenu qui reçoivent les champs ACF adresse, code postal, ville, lat et lng (lat/lng vides = calculés depuis l\'adresse à l\'enregistrement).', 'roquette-map' ); ?></p>
 		<p><button type="submit" class="ios-btn ios-btn--filled"><?php esc_html_e( 'Enregistrer', 'roquette-map' ); ?></button></p>
 	</form>
 </section>
